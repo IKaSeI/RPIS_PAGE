@@ -1,0 +1,16 @@
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.Tests.deps.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.Tests.runtimeconfig.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.Tests.runtimeconfig.dev.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.Tests.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.Tests.pdb
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\RMGs.pdb
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.csprojResolveAssemblyReference.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.csproj.CoreCompileInputs.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.AssemblyInfoInputs.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.AssemblyInfo.cs
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.pdb
