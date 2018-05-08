@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RMGs.Models.Order>
+@{
+    ViewData["Title"] = "ViewResultSearch";
+    ViewData["MainTitle"] = "Результаты поиска";
+}
+
+
+<div class="note borderTop col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <h1 class="borderElement textP headersText">Заявки пользователей</h1>
+    <h1 class="borderElement textP headersText" style="display:none">Мои заявки</h1>
+    <h1 class="borderElement textP headersText" style="display:none">Результаты поиска</h1>
+
+    <!-- first advertisement -->
+    @for (var i = Model.Count() - 1; i >= 0; --i)
+    {
+        <div class="row shadowX borderApp ">
+
+            <div class="borderContentApp col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <img src="@Url.Content(Model.ElementAt(i).RealEstate.Photo)" class="img-fluid" alt="photo of application">
+                <h2 class="headersText2" align="center">Цена @Model.ElementAt(i).Priece рублей</h2>
+            </div>
+
+            <div class="borderContentApp col-xs-12 col-sm-12 col-md-7 col-lg-7">
+
+                <div align="right">
+                    <a href="~/Home/ViewOrder?OrderId=@Model.ElementAt(i).Id" id="see">
+                        <img src="~/lib/img/se.png" class="img-fluid" alt="see" />
+                    </a>
+                    <a href="~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id" name="star">
+                        <img src="~/lib/img/star.png" class="img-fluid" alt="star" />
+                    </a>
+                </div>
+
+                <h2 class="headersText1">Название: @Model.ElementAt(i).RealEstate.Name</h2>
+                <h2 class="headersText1">Краткое описание:</h2>
+                <div class="shadowX">
+                    <p>@Model.ElementAt(i).RealEstate.Description</p>
+                </div>
+
+            </div>
+        </div>
+    }
+    <!-- second advertisement -->
+    <!-- /second advertisement -->
+    <!-- buttons list-->
+    @if (@Model.Count() != 0)
+    {
+        @*<div class="btn-toolbar borderContentApp" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="submit" class="btn btn-secondary">Назад</button>
+                    <button type="submit" class="btn btn-secondary">Дальше</button>
+                </div>
+            </div>*@
+    }
+    else
+    {<p>Здесь пока ничего нет</p>}
+    <!-- /buttons list-->
+
+</div>
+
+@section Script {
+    <script>
+
+        $("a[name='star']").click(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+
+                url: $(this).attr("href"), // comma here instead of semicolon
+            });
+
+        });
+    </script>
+}

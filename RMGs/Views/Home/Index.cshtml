@@ -1,0 +1,116 @@
+﻿@model IEnumerable<RMGs.Models.Order>
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["MainTitle"] = "Realtor Media Group";
+}
+
+<!-- sidebar & content -->
+<!-- left sidebar -->
+<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 borderTop">
+
+    <div class="list-group">
+        <!--<div class="container">-->
+        <a name="0" href="~/Home/Index?category=0" class="list-group-item list-group-item-action">Продажа</a>
+        <a name="1" href="~/Home/Index?category=1" class="list-group-item list-group-item-action">Покупка</a>
+        <a name="2" href="~/Home/Index?category=2" class="list-group-item list-group-item-action">Аренда</a>
+        <a name="3" href="~/Home/Index?category=3" class="list-group-item list-group-item-action">Съем</a>
+        <a name="4" href="~/Home/Index?category=4" class="list-group-item list-group-item-action">Обмен</a>
+        <!--</div>-->
+    </div>
+
+</div>
+<!-- /left sidebar -->
+<!-- content -->
+<div class="note borderTop col-xs-12 col-sm-8 col-md-9 col-lg-10">
+
+    <h1 class="borderElement textP headersText">Заявки пользователей</h1>
+    <h1 class="borderElement textP headersText" style="display:none">Мои заявки</h1>
+    <h1 class="borderElement textP headersText" style="display:none">Результаты поиска</h1>
+
+    <!-- first advertisement -->
+    @for (var i = Model.Count()-1; i >=0 ; --i)
+    {
+        <div class="row shadowX borderApp ">
+
+            <div class="borderContentApp col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <img src="@Url.Content(Model.ElementAt(i).RealEstate.Photo)" class="img-fluid" alt="photo of application">
+                <h2 class="headersText2" align="center">Цена @Model.ElementAt(i).Priece рублей</h2>
+            </div>
+
+            <div class="borderContentApp col-xs-12 col-sm-12 col-md-7 col-lg-7">
+
+                <div align="right">
+                    <a href="~/Home/ViewOrder?OrderId=@Model.ElementAt(i).Id" id="see">
+                        <img src="~/lib/img/se.png" class="img-fluid" alt="see" />
+                    </a>
+                    @if (Model.ElementAt(i).UserId.ToString() != ViewData["UserId"].ToString() && ViewData["UserId"].ToString()!="0") {
+                        <a href="~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id" name="star">
+                            <img src="~/lib/img/star.png" class="img-fluid" alt="star" />
+                        </a>
+                    }
+                    @*<a href="#" id="write" style="display:none">
+                        <img src="bootstrap/img/wr.png" class="img-fluid" alt="write" />
+                    </a>
+                    <a href="#" id="delete" style="display:none">
+                        <img src="bootstrap/img/de.png" class="img-fluid" alt="delete" />
+                    </a>*@
+                </div>
+
+                <h2 class="headersText1">Название: @Model.ElementAt(i).RealEstate.Name</h2>
+                <h2 class="headersText1">Краткое описание:</h2>
+                <div class="shadowX">
+                    <p>@Model.ElementAt(i).RealEstate.Description</p>
+                </div>
+
+            </div>
+        </div>
+    }
+    <!-- second advertisement -->
+    <!-- /second advertisement -->
+    <!-- buttons list-->
+    @if (@Model.Count() != 0)
+    {
+        @*<div class="btn-toolbar borderContentApp" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="submit" class="btn btn-secondary">Назад</button>
+                <button type="submit" class="btn btn-secondary">Дальше</button>
+            </div>
+        </div>*@
+    }
+    else
+    {<p>Здесь пока ничего нет</p>}
+    <!-- /buttons list-->
+
+</div>
+
+
+
+<!-- /content -->
+<!-- /sidebar & content -->
+@section Script {
+<script>
+    var leftMenu = document.getElementsByName(@ViewData["Category"]);
+    leftMenu[0].classList.add("active");
+
+    var menuLinks = document.getElementsByName('mainMenu1');
+        menuLinks[0].classList.add("active");
+
+        $("a[name='star']").click(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+
+                url: $(this).attr("href"), // comma here instead of semicolon
+                //success: function () {
+                //    alert("Value Added");  // or any other indication if you want to show
+                //}
+
+            });
+
+        });
+
+        @*$("a[name='star']").on('click', function (event) {
+        window.location.href = "~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id";
+    });*@
+</script>
+}

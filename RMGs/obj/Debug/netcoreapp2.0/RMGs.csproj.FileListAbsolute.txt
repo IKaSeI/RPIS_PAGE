@@ -1,0 +1,11 @@
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.deps.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.dev.json
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.pdb
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.csprojResolveAssemblyReference.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.csproj.CoreCompileInputs.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyInfoInputs.cache
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyInfo.cs
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.dll
+C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.pdb

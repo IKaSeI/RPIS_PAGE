@@ -1,0 +1,192 @@
+﻿
+@model Order
+@{
+    ViewData["Title"] = "ViewOrder";
+    ViewData["MainTitle"] = "Просмотр";
+}
+
+<div class="container-fluid">
+    <div class="note container ">
+        @*card card-block bg-faded*@
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="row borderApp">
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 container">
+                    <label>Изображение недвижимости:</label>
+                    <div class="custom-file">
+                        <img src="@Url.Content(Model.RealEstate.Photo)" class="img-fluid" />
+                        @if (ViewData["userHas"].ToString() == "True")
+                    {
+
+                    <div class="borderApp">
+                        <button type="button" id="edit"  class="btn btn-secondary btn-md btn-block">Редактировать</button>
+                    </div>
+                    <div class="borderApp">
+                        <button type="submit" formmethod="post" id="delete" formaction="~/Home/DeleteOrder?OrderId=@ViewData["orId"]&RealEstateId=@ViewData["reId"]" class="btn btn-secondary btn-md btn-block">Удалить</button>
+                    </div>
+                    }
+                    else
+                    {
+                    <a href="~/Home/Profile?id=@Model.UserId">@Model.UserName</a>
+                    }
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-6 col-sm-8 col-md-9 col-lg-9">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                            <label for="exampleFormControlSelect1">Название:*</label>
+                            <input type="text" class="form-control" readonly aria-describedby="inputGroup-sizing-default" name="RealEstate.Name" value="@Model.RealEstate.Name">
+
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Тип заявки:</label>
+                                <select disabled class="form-control" id="exampleFormControlSelect1" name="Order.Type">
+                                    <option value="Sale">Продажа</option>
+                                    <option value="Purchase">Покупка</option>
+                                    <option value="Lease">Аренда</option>
+                                    <option value="Rent">Съем</option>
+                                    <option value="Swap">Обмен</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ещё 4 row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Тип недвижимости:</label>
+                                <select disabled class="form-control" id="RESelect" name="RealEstate.Type">
+                                    <option value="Accommodation">Жилье</option>
+                                    <option value="LandPlot">Земля</option>
+                                    <option value="Recreational">Рекреационная</option>
+                                    <option value="Institutional">Институциональная</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row borderTop">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Страна:*</label>
+                            <input type="text" value="@Model.RealEstate.Location.Country" class="form-control" readonly aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.Country">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Город:*</label>
+                            <input type="text" value="@Model.RealEstate.Location.City" readonly class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.City">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Улица:*</label>
+                            <input type="text" value="@Model.RealEstate.Location.Street" readonly class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.Street">
+
+                        </div>
+                    </div>
+                    <div class="row borderTop " id="b4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">№ Дома:*</label>
+                            <input type="text" value="@Model.RealEstate.Location.HouseNumber" readonly id="e0" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.HouseNumber">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">№ Корпуса:</label>
+                            <input type="text" value="@Model.RealEstate.Location.HouseBlockNumber" class="form-control" readonly aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.HouseBlockNumber">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="b7">
+                            <label for="exampleFormControlSelect1">№ Квартиры:</label>
+                            <input type="text" value="@Model.RealEstate.Location.ApartmentsNumber" id="e4" readonly class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.ApartmentsNumber">
+                        </div>
+                    </div>
+                    <div class="row borderTop">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+                            <label for="exampleFormControlSelect1">Площадь (кв. метры):*</label>
+                            <input type="number" readonly value="@Model.RealEstate.Property.Area" class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Area">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="b6">
+                            <label for="exampleFormControlSelect1">Высота (метры):*</label>
+                            <input type="number" readonly id="e1" value="@Model.RealEstate.Property.Height" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <div class="row borderTop" id="b5">
+                        <!-- количество этажей и количество комнат-->
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="exampleFormControlSelect1">Количество этажей:*</label>
+                            <input type="number" id="e2" readonly value="@Model.RealEstate.Property.AmountOfFloors" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.AmountOfFloors">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="b8">
+                            <label for="exampleFormControlSelect1">Количество комнат:*</label>
+                            <input type="number" id="e3" value="@Model.RealEstate.Property.AmountOfRooms" readonly class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.AmountOfRooms">
+
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:15px">
+                        <label for="exampleFormControlTextarea1">Краткое описание:*</label>
+                        <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="5" name="RealEstate.Description">@Model.RealEstate.Description</textarea>
+
+                    </div>
+                    <div class="row borderTop">
+                        <div class="input-group-append mb-4 col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Цена (рубли):*</span>
+                            </div>
+                            <input type="number" readonly value="@Model.Priece" class="form-control" aria-describedby="inputGroup-sizing-default" name="Order.Priece">
+                            @if (ViewData["userHas"].ToString() == "True")
+                            {
+                                <div class="borderApp">
+                                    <button type="button" id="search" class="btn btn-secondary btn-md btn-block">Поиск</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Script {
+<script>
+
+    var selects = ["Accommodation", "LandPlot", "Recreational", "Institutional"];
+    var blocks = ["b4", "b5", "b6"];
+    var blocks1 = ["b7", "b8"];
+
+    var val = text = '@Model.RealEstate.Type';
+    $("select option[value=" + val + "]").attr('selected', 'true');
+
+    var val = text = '@Model.Type';
+    $("select option[value=" + val + "]").attr('selected', 'true');
+
+    if ("@Model.RealEstate.Type.Equals(TypeEstate.LandPlot)" == "True") {
+        blocks.forEach(function (id) {
+            var param = document.getElementById(id);
+            param.style.display = 'none';
+        });
+    }
+
+    if ("@Model.RealEstate.Type" == "@TypeEstate.Institutional" ||
+        "@Model.RealEstate.Type" == "@TypeEstate.Recreational") {
+
+        blocks1.forEach(function (id) {
+            var param = document.getElementById(id);
+            param.style.display = 'none';
+        });
+    }
+
+    $("#edit").on('click', function (event) {
+        window.location.href = "EditOrder?OrderId=@ViewData["orId"]&RealEstateId=@ViewData["reId"]";
+    });
+    $("#search").on('click', function (event) {
+        window.location.href = "Search?Ot=@Model.Type&Et=@Model.RealEstate.Type&Country=@Model.RealEstate.Location.Country&City=@Model.RealEstate.Location.City";
+    });
+</script>
+}

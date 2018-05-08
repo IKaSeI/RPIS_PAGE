@@ -1,0 +1,95 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["MainTitle"] = "Профиль пользователя";
+}
+
+
+<div class="container">
+    <div class=" borderContentApp col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <form method="post" class="needs-validation" novalidate>
+            <div class="note container " align="center">
+                <div class="margNew ">
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ФИО</span>
+                        </div>
+                        <input type="text" value="@Model.FIO" pattern="[a-zA-ZА-Яа-яёЁ]+[ ]+([a-zA-ZА-Яа-яёЁ]+[ ]*){1,2}" required name="User.FIO" class="form-control" aria-describedby="inputGroup-sizing-default" id="FIO" readonly>
+                        <div class="invalid-feedback">
+                            Поле должно быть заполнено двумя-тремя словами
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">E-mail</span>
+                        </div>
+                        <input type="text" name="User.EMail" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required value="@Model.EMail" class="form-control" aria-describedby="inputGroup-sizing-default" id="EMail" readonly>
+                        <div class="invalid-feedback">
+                            Адрес электронной почты введен некорректно
+                        </div>
+                    </div>
+
+
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Телефон</span>
+                        </div>
+                        <input type="text" value="@Model.Phone" required name="User.Phone" pattern="[8][(][0-9]{3}[)][ ][0-9]{3}([-][0-9]{2}){2}" id="phone" class="form-control" aria-describedby="inputGroup-sizing-default" readonly>
+                        <div class="invalid-feedback">
+                            Телефон введен не полностью
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:none;" id="edit" class="borderApp">
+                    <div class="borderElement">
+                        <button type="button" class="btn btn-primary btn-md " >Редактировать</button>
+                        <button type="button" class="btn btn-secondary btn-md" id="logOut">Выйти из аккаунта</button>
+                    </div>
+                </div>
+
+                <div class="borderApp" style="display:none;" id="save">
+                    <button type="submit" class="btn btn-primary btn-md ">Сохранить</button>
+                    <button type="button" class="btn btn-primary btn-md " id="cancel">Отменить</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Script {
+    <script>
+        var menuLinks = document.getElementsByName('mainMenu4');
+        menuLinks[0].classList.add("active");
+
+        if (@ViewData["userId"].ToString()=="0") {
+            document.getElementById("edit").style.display = '';
+
+        }
+
+        $("#edit").on('click', function () {
+            document.getElementById("edit").style.display = 'none';
+            document.getElementById("save").style.display = '';
+            document.getElementById("FIO").removeAttribute("readonly");
+            document.getElementById("EMail").removeAttribute("readonly");
+            document.getElementById("phone").removeAttribute("readonly");
+        });
+
+        $(function () {
+            $("#phone").mask("8(999) 999-99-99");
+        });
+
+        $("#cancel").on('click', function (event) {
+            window.location.href = "Profile?id=0";
+        });
+
+        $("#logOut").on('click', function (event) {
+
+            window.location.href = "LogOut";
+        });
+
+    </script>
+}
