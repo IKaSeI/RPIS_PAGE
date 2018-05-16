@@ -17,6 +17,39 @@
         <a name="4" href="~/Home/Index?category=4" class="list-group-item list-group-item-action">Обмен</a>
         <!--</div>-->
     </div>
+    <br>
+
+    <div class="container-fluid">
+        <form method="get">
+            <div>
+                <div>
+                    <input style="width:47%;display:inline-block;" id="e1" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly />
+                    <input style="width:47%;display:inline-block;" id="e2" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly >
+                </div>
+
+                <div id="slider"></div> 
+            </div>
+            <div style="margin-top:10px;">
+                <input type="text" class="form-control" pattern="" aria-describedby="inputGroup-sizing-default" name="RealEstate.Name" value="" required placeholder="Введите страну">
+                <div class="invalid-feedback">
+                    Поле должно начинаться с буквы и содержать только буквы и пробелы
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:10px;">
+                <label for="exampleFormControlSelect1">Тип недвижимости:</label>
+                <select class="form-control" id="RESelect" name="RealEstate.Type">
+                    <option value="Accommodation">Жилье</option>
+                    <option value="LandPlot">Земля</option>
+                    <option value="Recreational">Рекреационная</option>
+                    <option value="Institutional">Институциональная</option>
+                </select>
+            </div>
+            <div class="borderElement">
+                <button type="submit" class="btn btn-secondary btn-md btn-block">Поиск</button>
+            </div>
+        </form>
+    </div>
 
 </div>
 <!-- /left sidebar -->
@@ -112,5 +145,7 @@
         @*$("a[name='star']").on('click', function (event) {
         window.location.href = "~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id";
     });*@
+    //$("#slider").editRangeSlider();
+    var slider = new Slider('#ex2', {});
 </script>
 }
