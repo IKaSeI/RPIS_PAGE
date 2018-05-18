@@ -1,0 +1,246 @@
+﻿
+@{
+    ViewData["Title"] = "CreateOrder";
+    ViewData["MainTitle"] = "Создание заявки";
+}
+
+
+
+<div class="container-fluid">
+    <div class="note container ">
+        @*card card-block bg-faded*@
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="row borderApp">
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                    <label>Изображение недвижимости:</label>
+                    <div>
+                        <div>
+                            <img src="~/lib/img/home.jpg" class="img-fluid" id="imgId" />
+                        </div>
+                        <div class="custom-file" style="margin-top:7px;">
+                            <input type="file" class="custom-file-input" id="imgInput" name="Image" required>
+                            <label for="exampleFormControlFile1" class="custom-file-label">Выберите изображение:*</label>
+                            <div class="invalid-feedback">
+                                Пожалуйста, выберите файл
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm btn-block" style="display:none">Редактировать</button>
+                    <button type="button" class="btn btn-secondary btn-sm btn-block" style="display:none">Удалить</button>
+                </div>
+                
+                <div class="col-xs-6 col-sm-8 col-md-9 col-lg-9">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                            <label for="exampleFormControlSelect1">Название:*</label>
+                            <input type="text" class="form-control" pattern="(([A-Za-z]|[А-Яа-яёЁ]){1}[\s]*)*" aria-describedby="inputGroup-sizing-default" name="RealEstate.Name" value="" required>
+                            <div class="invalid-feedback">
+                                Поле должно начинаться с буквы и содержать только буквы и пробелы
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Тип заявки:</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="Order.Type">
+                                    <option value="Sale">Продажа</option>
+                                    <option value="Purchase">Покупка</option>
+                                    <option value="Lease">Аренда</option>
+                                    <option value="Rent">Съем</option>
+                                    <option value="Swap">Обмен</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ещё 4 row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Тип недвижимости:</label>
+                                <select class="form-control" id="RESelect" name="RealEstate.Type">
+                                    <option value="Accommodation">Жилье</option>
+                                    <option value="LandPlot">Земля</option>
+                                    <option value="Recreational">Рекреационная</option>
+                                    <option value="Institutional">Институциональная</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row borderTop">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Страна:*</label>
+                            <input type="text" value="" class="form-control" pattern="(([A-Za-z]|[А-Яа-яёЁ]){1}[\s]*)*" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.Country" required>
+                            <div class="invalid-feedback">
+                                Поле должно начинаться с буквы и содержать только буквы и пробелы
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Город:*</label>
+                            <input type="text" value="" pattern="(([A-Za-z]|[А-Яа-яёЁ]){1}[\s]*)*" required class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.City">
+                            <div class="invalid-feedback">
+                                Поле должно начинаться с буквы и содержать только буквы и пробелы
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">Улица:*</label>
+                            <input type="text" required value="" pattern="(([A-Za-z]|[А-Яа-яёЁ]){1}[\s]*)*" class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.Street">
+                            <div class="invalid-feedback">
+                                Поле должно начинаться с буквы и содержать только буквы и пробелы
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row borderTop " id="b4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">№ Дома:*</label>
+                            <input type="text" required value="" id="e0" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.HouseNumber">
+                            <div class="invalid-feedback">
+                                Поле должно быть заполнено
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <label for="exampleFormControlSelect1">№ Корпуса:</label>
+                            <input type="text" value="" class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.HouseBlockNumber">
+                 
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="b7">
+                            <label for="exampleFormControlSelect1">№ Квартиры:</label>
+                            <input type="text" value="" id="e4" class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.ApartmentsNumber">       
+                        </div>
+                    </div>
+                    <div class="row borderTop">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+                            <label for="exampleFormControlSelect1">Площадь (кв. метры):*</label>
+                            <input type="number" required min="1" value="" class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Area">
+                            <div class="invalid-feedback">
+                                Должно быть введено значение больше нуля
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="b6">
+                            <label for="exampleFormControlSelect1">Высота (метры):*</label>
+                            <input type="number" min="1" id="e1" required value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height">
+                            <div class="invalid-feedback">
+                                Должно быть введено значение больше нуля
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <div class="row borderTop" id="b5">
+                        <!-- количество этажей и количество комнат-->
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="exampleFormControlSelect1">Количество этажей:*</label>
+                            <input type="number" id="e2" required min="1" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.AmountOfFloors">
+                            <div class="invalid-feedback">
+                                Должно быть введено значение больше нуля
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="b8">
+                            <label for="exampleFormControlSelect1">Количество комнат:*</label>
+                            <input type="number" id="e3" required value="" min="1" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.AmountOfRooms">
+                            <div class="invalid-feedback">
+                                Должно быть введено значение больше нуля
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Краткое описание:*</label>
+                        <textarea class="form-control" required id="exampleFormControlTextarea1" rows="5" name="RealEstate.Description"></textarea>
+                        <div class="invalid-feedback">
+                            Поле не может быть пустым
+                        </div>
+                    </div>
+                    <div class="row borderTop">
+                        <div class="input-group-append mb-4 col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Цена (рубли):*</span>
+                            </div>
+                            <input type="number" min="0" value="" required class="form-control" aria-describedby="inputGroup-sizing-default" name="Order.Priece">
+                            <div class="invalid-feedback">
+                                Некорректное значение цены
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-primary btn-md">Создать</button>
+                            <button type="reset" class="btn btn-primary btn-md">Отмена</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Script {
+    <script>
+        var selects = ["Accommodation", "LandPlot", "Recreational","Institutional"];
+        var inputs = ["e0", "e1", "e2", "e3"];
+        var blocks = ["b4", "b5", "b6"];
+
+        var inputs1 = ["e3", "e4"];
+        var blocks1 = ["b7", "b8"];
+
+        function fuck(arr1, arr2) {
+            if(arr1!=null)
+            arr1.forEach(function (id) {
+                var param = document.getElementById(id);
+                if (!param.hasAttribute("required"))
+                    param.setAttribute("required", null);
+            });
+            arr2.forEach(function (id) {
+                var param = document.getElementById(id);
+                param.style.display = '';
+            });
+        }
+
+        $('#RESelect').change(function () {
+
+            fuck(inputs, blocks);
+            fuck( null, blocks1);
+
+            if ($("#RESelect option:selected").val() == "LandPlot") {
+                inputs.forEach(function (id) {
+                    var param = document.getElementById(id);
+                    if (param.hasAttribute("required"))
+                        param.removeAttribute("required");
+                });
+                blocks.forEach(function (id) {
+                    var param = document.getElementById(id);
+                    param.style.display = 'none';
+                });
+            }
+
+            if ($("#RESelect option:selected").val() == "Recreational" ||
+                $("#RESelect option:selected").val() == "Institutional") {
+
+                var param = document.getElementById(inputs1[0]);
+                if (param.hasAttribute("required"))
+                    param.removeAttribute("required");
+                
+                blocks1.forEach(function (id) {
+                    var param = document.getElementById(id);
+                    param.style.display = 'none';
+                });
+            }
+        });
+
+        var menuLinks = document.getElementsByName('mainMenu3');
+        menuLinks[0].classList.add("active");
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgId').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInput").change(function () {
+            readURL(this);
+        });
+    </script>
+}
