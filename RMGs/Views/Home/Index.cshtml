@@ -23,10 +23,10 @@
         <form method="get">
             <div>
                 <div>
-                    <input style="width:47%;display:inline-block;" id="e1" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly />
-                    <input style="width:47%;display:inline-block;" id="e2" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly >
+                    <input style="width:47%;display:inline-block;" id="minCost" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly />
+                    <input style="width:47%;display:inline-block;" id="maxCost" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly >
                 </div>
-
+                <br>
                 <div id="slider"></div> 
             </div>
             <div style="margin-top:10px;">
@@ -146,6 +146,20 @@
         window.location.href = "~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id";
     });*@
     //$("#slider").editRangeSlider();
-    var slider = new Slider('#ex2', {});
+    $("#slider").slider({
+        min: 0,
+        max: 1000,
+        values: [0, 1000],
+        range: true,
+        stop: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        },
+        slide: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        }
+
+    });
 </script>
 }
