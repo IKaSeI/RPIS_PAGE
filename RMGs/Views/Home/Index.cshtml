@@ -20,17 +20,17 @@
     <br>
 
     <div class="container-fluid">
-        <form method="get">
+        <form method="post">
             <div>
                 <div>
-                    <input style="width:47%;display:inline-block;" id="minCost" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly />
-                    <input style="width:47%;display:inline-block;" id="maxCost" value="" class="form-control " aria-describedby="inputGroup-sizing-default" name="RealEstate.Property.Height" type="text" readonly >
+                    <input style="width:47%;display:inline-block;" id="minCost" value="0" class="form-control " aria-describedby="inputGroup-sizing-default" name="lowPrice" type="text" readonly />
+                    <input style="width:47%;display:inline-block;" id="maxCost" value="10000000000" class="form-control " aria-describedby="inputGroup-sizing-default" name="highPrice" type="text" readonly >
                 </div>
                 <br>
                 <div id="slider"></div> 
             </div>
             <div style="margin-top:10px;">
-                <input type="text" class="form-control" pattern="" aria-describedby="inputGroup-sizing-default" name="RealEstate.Name" value="" required placeholder="Введите страну">
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" name="CountryName" value="" required placeholder="Введите страну">
                 <div class="invalid-feedback">
                     Поле должно начинаться с буквы и содержать только буквы и пробелы
                 </div>
@@ -38,7 +38,7 @@
 
             <div class="form-group" style="margin-top:10px;">
                 <label for="exampleFormControlSelect1">Тип недвижимости:</label>
-                <select class="form-control" id="RESelect" name="RealEstate.Type">
+                <select class="form-control" id="RESelect" name="Ot">
                     <option value="Accommodation">Жилье</option>
                     <option value="LandPlot">Земля</option>
                     <option value="Recreational">Рекреационная</option>
@@ -46,7 +46,7 @@
                 </select>
             </div>
             <div class="borderElement">
-                <button type="submit" class="btn btn-secondary btn-md btn-block">Поиск</button>
+                <button type="submit" id="GlobalSearch" class="btn btn-secondary btn-md btn-block">Поиск</button>
             </div>
         </form>
     </div>
@@ -148,8 +148,8 @@
     //$("#slider").editRangeSlider();
     $("#slider").slider({
         min: 0,
-        max: 1000,
-        values: [0, 1000],
+        max: 100000000,
+        values: [0, 100000000],
         range: true,
         stop: function (event, ui) {
             jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
@@ -161,5 +161,8 @@
         }
 
     });
+    //$("#GlobalSearch").on('click', function (event) {
+    //    window.location.href = "GlobalSearch?Ot=Order.Type@Country=RealEstate.Name@lowPrice=RealEstate.Property.LowPrice@highPrice=RealEstate.Property.HighPrice";
+    //});
 </script>
 }

@@ -14,9 +14,9 @@ C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimecon
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.dev.json
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.pdb
-C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.csprojAssemblyReference.cache
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.csproj.CoreCompileInputs.cache
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyInfoInputs.cache
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyInfo.cs
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.pdb
+C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.csprojAssemblyReference.cache

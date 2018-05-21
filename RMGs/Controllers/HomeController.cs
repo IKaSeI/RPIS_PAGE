@@ -290,7 +290,6 @@ namespace RMGs.Controllers
         }
 
         //--------------------------------------------------------------------------------------------
-
         [Authorize]
         public IActionResult Search(OrderType Ot, TypeEstate Et, String Country, String City)
         {
@@ -322,8 +321,32 @@ namespace RMGs.Controllers
                     }           
             }
             User u = Initialize().Result;
-            List<Order> orders = this.db.Orders.Where(o => o.Type == otSearch && o.UserId!=u.Id).ToList();
+            List<Order> orders;
+            orders = this.db.Orders.Where(o => o.Type == otSearch && o.UserId!=u.Id ).ToList();
             List < RealEstate > real = this.db.RealEstates.ToList();
+            return View(orders);
+        }
+
+        
+        [HttpPost]
+        public IActionResult Index(String lowPrice, String highPrice,String CountryName, String Ot, int category = 0)
+        {
+            List<RealEstate> estates = this.db.RealEstates.ToList();
+            List<Order> orders;
+            OrderType O = (OrderType)category;
+            orders = this.db.Orders.Where(o => o.RealEstate.Type.ToString() == Ot
+            && Convert.ToInt64(o.Priece, 10) >= Convert.ToInt64(lowPrice,10) 
+            && Convert.ToInt64(o.Priece, 10) <= Convert.ToInt64(highPrice,10)
+            && CountryName == o.RealEstate.Location.Country && O == o.Type).ToList();
+            ViewData["UserId"] = Convert.ToString(0);
+            ViewData["Category"] = Convert.ToString(category);
+            User u = Initialize().Result;
+
+            if (u != null)
+            {
+                ViewData["UserId"] = Convert.ToString(u.Id);
+            }
+
             return View(orders);
         }
         //------------------------------------------------------------------
