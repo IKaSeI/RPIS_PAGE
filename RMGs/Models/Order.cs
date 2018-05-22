@@ -21,5 +21,7 @@ namespace RMGs.Models
 
         public int RealEstateId { get; set; }//link to real estate
         public RealEstate RealEstate { get; set; }//
+
+        public List<Review> Comments { get; set; }
     }
 }

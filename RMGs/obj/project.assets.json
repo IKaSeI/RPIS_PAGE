@@ -13123,26 +13123,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oder\\.nuget\\packages\\": {},
+    "C:\\Users\\1\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\_my_programm\\Laboratonie\\RPIS\\RMGs\\RMGs\\RMGs.csproj",
+      "projectUniqueName": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs\\RMGs.csproj",
       "projectName": "RMGs",
-      "projectPath": "C:\\_my_programm\\Laboratonie\\RPIS\\RMGs\\RMGs\\RMGs.csproj",
-      "packagesPath": "C:\\Users\\oder\\.nuget\\packages\\",
-      "outputPath": "C:\\_my_programm\\Laboratonie\\RPIS\\RMGs\\RMGs\\obj\\",
+      "projectPath": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs\\RMGs.csproj",
+      "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\oder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

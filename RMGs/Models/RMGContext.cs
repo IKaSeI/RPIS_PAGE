@@ -12,6 +12,7 @@ namespace RMGs.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<RealEstate> RealEstates { get; set; }
         public DbSet<BookMarks> BookMarks { get; set; }
+        public DbSet<Review> Review { get; set; }
 
         public RMGContext(DbContextOptions<RMGContext> options)
             : base(options)

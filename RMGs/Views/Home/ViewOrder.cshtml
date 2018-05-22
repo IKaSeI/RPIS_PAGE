@@ -8,26 +8,26 @@
 <div class="container-fluid">
     <div class="note container ">
         @*card card-block bg-faded*@
-        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <form method="post" action="~/Home/Search" enctype="multipart/form-data" class="needs-validation" novalidate>
             <div class="row borderApp">
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 container">
                     <label>Изображение недвижимости:</label>
                     <div class="custom-file">
                         <img src="@Url.Content(Model.RealEstate.Photo)" class="img-fluid" />
                         @if (ViewData["userHas"].ToString() == "True")
-                    {
+                        {
 
-                    <div class="borderApp">
-                        <button type="button" id="edit"  class="btn btn-secondary btn-md btn-block">Редактировать</button>
-                    </div>
-                    <div class="borderApp">
-                        <button type="submit" formmethod="post" id="delete" formaction="~/Home/DeleteOrder?OrderId=@ViewData["orId"]&RealEstateId=@ViewData["reId"]" class="btn btn-secondary btn-md btn-block">Удалить</button>
-                    </div>
-                    }
-                    else
-                    {
-                    <a href="~/Home/Profile?id=@Model.UserId">@Model.UserName</a>
-                    }
+                            <div class="borderApp">
+                                <button type="button" id="edit" class="btn btn-secondary btn-md btn-block">Редактировать</button>
+                            </div>
+                            <div class="borderApp">
+                                <button type="submit" formmethod="post" id="delete" formaction="~/Home/DeleteOrder?OrderId=@ViewData["orId"]&RealEstateId=@ViewData["reId"]" class="btn btn-secondary btn-md btn-block">Удалить</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <a href="~/Home/Profile?id=@Model.UserId">@Model.UserName</a>
+                        }
 
                     </div>
 
@@ -78,6 +78,8 @@
                             <input type="text" value="@Model.RealEstate.Location.City" readonly class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.City">
 
                         </div>
+                        <input type="hidden" value="@Model.Type" name="Type" />
+                        <input type="hidden" value="@Model.RealEstate.Type" name="RealEstate.Type" />
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                             <label for="exampleFormControlSelect1">Улица:*</label>
                             <input type="text" value="@Model.RealEstate.Location.Street" readonly class="form-control" aria-describedby="inputGroup-sizing-default" name="RealEstate.Location.Street">
@@ -142,7 +144,7 @@
                             @if (ViewData["userHas"].ToString() == "True")
                             {
                                 <div class="borderApp">
-                                    <button type="button" id="search" class="btn btn-secondary btn-md btn-block">Поиск</button>
+                                    <input type="submit" id="search" class="btn btn-secondary btn-md btn-block" value="Поиск" />
                                 </div>
                             }
                         </div>
@@ -151,10 +153,86 @@
             </div>
         </form>
     </div>
+
+    <div class="container modal-content" style="margin-top: 10px; background-color: #eee0ff;">
+
+        <form method="post" action="~/Home/Review" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="2" placeholder="Добавьте Ваш комментарий" required name="Comment"></textarea>
+                                <div class="invalid-feedback">
+                                    Поле не может быть пустым
+                                </div>
+                            </div>
+                            @*<input hidden value="@Model.UserId" name="User.Id" />
+                            <input hidden value="@Model.UserName" name="User.FIO" />*@
+                            <input hidden value="@Model.Id" name="OrderId" />
+
+                            <div style="margin: 8px 5px;">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="Mark" id="inlineRadio1" value="true" checked> Положительный отзыв
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" name="Mark" type="radio" id="inlineRadio2" value="false"> Негативный отзыв
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mar-top clearfix" align="right">
+                                <button class="btn btn-sm btn-primary pull-right" type="submit" name="bliat"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+        
+        <div>
+            <ul class="timeline">
+
+                <!--Первый комментарий-->
+                @if (Model.Comments!=null) {
+                    @for (var i = Model.Comments.Count() - 1; i >= 0; --i)
+                    {
+                <li>
+                    @if (@Model.Comments.ElementAt(i).Mark)
+    {
+                <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
+}
+else
+{
+                <div class="timeline-badge down"><i class="fa fa-thumbs-up"></i></div>
+}
+
+                    <div class="timeline-panel" style="background-color: #dddddd">
+                        <div class="timeline-heading">
+                            <a href="~/Home/Profile?id=@Model.Comments.ElementAt(i).UserId"><h4 class="timeline-title">@Model.Comments.ElementAt(i).NameUser</h4></a>
+                        </div>
+                        <div class="timeline-body">
+                            <p>@Model.Comments.ElementAt(i).Comment</p>
+                        </div>
+                    </div>
+                </li>
+                    }
+                }
+            <!--Второй комментарий-->
+
+            </ul>
+        </div>
+
+
+    </div>
+
 </div>
 
 @section Script {
-<script>
+    <script charset="utf-8">
 
     var selects = ["Accommodation", "LandPlot", "Recreational", "Institutional"];
     var blocks = ["b4", "b5", "b6"];
@@ -185,8 +263,9 @@
     $("#edit").on('click', function (event) {
         window.location.href = "EditOrder?OrderId=@ViewData["orId"]&RealEstateId=@ViewData["reId"]";
     });
-    $("#search").on('click', function (event) {
-        window.location.href = "Search?Ot=@Model.Type&Et=@Model.RealEstate.Type&Country=@Model.RealEstate.Location.Country&City=@Model.RealEstate.Location.City";
-    });
-</script>
+        $("#search").on('click', function (event) {
+            location.assign("Search?Ot=@Model.Type&Et=@Model.RealEstate.Type&Country=" + encodeURIComponent("@Model.RealEstate.Location.Country.ToString()") + "&City=" + encodeURI("@Model.RealEstate.Location.City.ToString()"));
+        });
+
+    </script>
 }

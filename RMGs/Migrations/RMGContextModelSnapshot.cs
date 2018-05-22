@@ -76,6 +76,28 @@ namespace RMGs.Migrations
                     b.ToTable("RealEstates");
                 });
 
+            modelBuilder.Entity("RMGs.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Comment");
+
+                    b.Property<bool>("Mark");
+
+                    b.Property<string>("NameUser");
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Review");
+                });
+
             modelBuilder.Entity("RMGs.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -152,6 +174,14 @@ namespace RMGs.Migrations
                                 .HasForeignKey("RMGs.Stereotypes.Property", "RealEstateId")
                                 .OnDelete(DeleteBehavior.Cascade);
                         });
+                });
+
+            modelBuilder.Entity("RMGs.Models.Review", b =>
+                {
+                    b.HasOne("RMGs.Models.Order")
+                        .WithMany("Comments")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

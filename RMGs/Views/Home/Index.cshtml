@@ -17,6 +17,39 @@
         <a name="4" href="~/Home/Index?category=4" class="list-group-item list-group-item-action">Обмен</a>
         <!--</div>-->
     </div>
+    <br>
+
+    <div class="container-fluid">
+        <form method="post">
+            <div>
+                <div>
+                    <input style="width:47%;display:inline-block;" id="minCost" value="0" class="form-control " aria-describedby="inputGroup-sizing-default" name="lowPrice" type="text" readonly />
+                    <input style="width:47%;display:inline-block;" id="maxCost" value="10000000000" class="form-control " aria-describedby="inputGroup-sizing-default" name="highPrice" type="text" readonly>
+                </div>
+                <br>
+                <div id="slider"></div>
+            </div>
+            <div style="margin-top:10px;">
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" name="CountryName" value="" required placeholder="Введите страну">
+                <div class="invalid-feedback">
+                    Поле должно начинаться с буквы и содержать только буквы и пробелы
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:10px;">
+                <label for="exampleFormControlSelect1">Тип недвижимости:</label>
+                <select class="form-control" id="RESelect" name="Ot">
+                    <option value="Accommodation">Жилье</option>
+                    <option value="LandPlot">Земля</option>
+                    <option value="Recreational">Рекреационная</option>
+                    <option value="Institutional">Институциональная</option>
+                </select>
+            </div>
+            <div class="borderElement">
+                <button type="submit" id="GlobalSearch" class="btn btn-secondary btn-md btn-block">Поиск</button>
+            </div>
+        </form>
+    </div>
 
 </div>
 <!-- /left sidebar -->
@@ -41,7 +74,7 @@
 
                 <div align="right">
                     <a href="~/Home/ViewOrder?OrderId=@Model.ElementAt(i).Id" id="see">
-                        <img src="~/lib/img/se.png" class="img-fluid" alt="see" />
+                        <img src="~/lib/img/se.png" class="img-fluid" alt="see"/>
                     </a>
                     @if (Model.ElementAt(i).UserId.ToString() != ViewData["UserId"].ToString() && ViewData["UserId"].ToString()!="0") {
                         <a href="~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id" name="star">
@@ -107,8 +140,25 @@
 
             });
 
-        });
+    });
+    $("#slider").slider({
+        min: 0,
+        max: 100000000,
+        values: [0, 100000000],
+        range: true,
+        stop: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        },
+        slide: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        }
 
+    });
+        //function changeImg(source) {
+        //    document.pict.src ='~/lib/img/' + source + '.png';
+        //};
         @*$("a[name='star']").on('click', function (event) {
         window.location.href = "~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id";
     });*@

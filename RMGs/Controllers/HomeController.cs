@@ -169,6 +169,10 @@ namespace RMGs.Controllers
             ViewData["userHas"] = Convert.ToString(us.Orders!=null);
             ViewData["orId"] = Convert.ToString(OrderId);
             ViewData["reId"] = Convert.ToString(Order.RealEstateId);
+            //-----------------------------------------------
+            db.Review.ToList();
+            //db.Users.ToList();
+
             return View(Order);
         }
         //--------------------------------------------------------------------------
@@ -290,11 +294,20 @@ namespace RMGs.Controllers
         }
 
         //--------------------------------------------------------------------------------------------
-
         [Authorize]
-        public IActionResult Search(OrderType Ot, TypeEstate Et, String Country, String City)
+        [HttpPost]
+        public IActionResult Search(IFormCollection form)
         {
-            if (City ==null || Country == null)
+            String City = form["RealEstate.Location.City"];
+            String Country = form["RealEstate.Location.Country"];
+            String v = form["Type"];
+            OrderType Ot = OrderType.Swap;
+            if (v == OrderType.Lease.ToString()) Ot = OrderType.Lease;
+            else if(v == OrderType.Purchase.ToString()) Ot = OrderType.Purchase;
+            else if (v == OrderType.Rent.ToString()) Ot = OrderType.Rent;
+            else if (v == OrderType.Sale.ToString()) Ot = OrderType.Sale;
+
+            if (City == null || Country == null)
             { return Redirect("~/Home/Index?category=0"); }
 
             OrderType otSearch = OrderType.Swap;
@@ -319,14 +332,36 @@ namespace RMGs.Controllers
                     {
                         otSearch = OrderType.Lease;
                         break;
-                    }           
+                    }
             }
             User u = Initialize().Result;
-            List<Order> orders = this.db.Orders.Where(o => o.Type == otSearch && o.UserId!=u.Id).ToList();
+            List<Order> orders = this.db.Orders.Where(o => o.Type == otSearch && o.RealEstate.Location.Country == Country && o.RealEstate.Location.City == City && o.UserId!=u.Id).ToList();
             List < RealEstate > real = this.db.RealEstates.ToList();
             return View(orders);
         }
         //------------------------------------------------------------------
+        [HttpPost]
+        public IActionResult Index(String lowPrice, String highPrice, String CountryName, String Ot, int category = 0)
+        {
+            List<RealEstate> estates = this.db.RealEstates.ToList();
+            List<Order> orders;
+            OrderType O = (OrderType)category;
+            orders = this.db.Orders.Where(o => o.RealEstate.Type.ToString() == Ot
+            && Convert.ToInt64(o.Priece, 10) >= Convert.ToInt64(lowPrice, 10)
+            && Convert.ToInt64(o.Priece, 10) <= Convert.ToInt64(highPrice, 10)
+            && CountryName == o.RealEstate.Location.Country && O == o.Type).ToList();
+            ViewData["UserId"] = Convert.ToString(0);
+            ViewData["Category"] = Convert.ToString(category);
+            User u = Initialize().Result;
+
+            if (u != null)
+            {
+                ViewData["UserId"] = Convert.ToString(u.Id);
+            }
+
+            return View(orders);
+        }
+
         [Authorize]
         [HttpGet]
         public void AddTOBookMarks(int OrderId)
@@ -346,6 +381,20 @@ namespace RMGs.Controllers
                 db.BookMarks.Remove(lb[0]);
             }
             db.SaveChanges();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Review(Review r)
+        {
+            User u= Initialize().Result;
+            r.NameUser = u.FIO;
+            r.UserId = u.Id;
+
+            db.Review.Add(r);
+            db.SaveChanges();
+
+            return Redirect("~/Home/ViewOrder?OrderId="+r.OrderId.ToString());
         }
 
         [Authorize]
