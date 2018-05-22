@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewData["Title"] = "Authorization";
+
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="authLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- registration title -->
+                <h5 class="modal-title" id="authLabel">Войти</h5>
+                <h5 class="modal-title" id="registLabel" style="display:none;">Зарегистрироваться</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="borderElement"><h3 align="center">Добро пожаловать на сайт!</h3></div>
+            <div class="container"><div class="text-danger">@ViewData["SignUpError"]</div></div>
+            
+
+            <div class="modal-body">
+                <!-- signin input forms -->
+                <form id="loginForm" method="post" action="~/Home/SignIn" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="inputEmail">Электронная почта</label>
+                        <input type="email" class="form-control" name="EMail" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" >
+                        <div class="invalid-feedback">
+                            Адрес электронной почты введен некорректно
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Пароль</label>
+                        <input type="password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}[^а-яА-ЯёЁ\s]" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <div class="invalid-feedback">
+                            Пароль должен содержать по крайней мере одну цифру и одну прописную и строчную латинские буквы и не менее 6 символов
+                        </div>
+                    </div>
+                    <div class="borderElement">
+                        <button type="submit" class="btn btn-primary btn-md btn-block">Войти</button>
+                    </div>
+                </form>
+
+                <!-- registration input forms -->
+                <form style="display:none;" id="registrForm" action="~/Home/SignUp" method="post" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="inputNEm">Электронная почта</label>
+                        <input type="email" name="User.EMail" class="form-control" pattern="^([A-Za-z0-9_-]+\.)*[A-Za-z0-9_-]+@@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required id="inputNEm" aria-describedby="emailHelp" placeholder="Enter email">
+                        <div class="invalid-feedback">
+                            Адрес электронной почты введен некорректно
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUserName">ФИО</label>
+                        <input type="text" pattern="[a-zA-ZА-Яа-яёЁ]+[ ]+([a-zA-ZА-Яа-яёЁ]+[ ]*){1,2}" name="User.FIO" class="form-control" id="inputUserName" required placeholder="Enter user name">
+                        <div class="invalid-feedback">
+                            Поле должно быть заполнено двумя-тремя словами
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Телефон</label>
+                        <input type="text" pattern="[8][(][0-9]{3}[)][ ][0-9]{3}([-][0-9]{2}){2}" required name="User.Phone" class="form-control" id="phone" placeholder="Enter your phone" >
+                        <div class="invalid-feedback">
+                            Телефон введен не полностью
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNewPassword">Пароль</label>
+                        <input type="password" name="User.Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}[^а-яА-ЯёЁ\s]" required id="inputNewPassword" placeholder="Password">
+                        <div class="invalid-feedback">
+                            Пароль должен содержать по крайней мере одну цифру и одну прописную и строчную латинские буквы и не менее 6 символов
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confPass">Подтвердите пароль</label>
+                        <input type="password" pattern="" class="form-control" id="confPass" placeholder="Confirm your password" required>
+                        <div class="invalid-feedback">
+                            Строка не совпадает с введенным паролем
+                        </div>
+                    </div>
+                    <div class="borderElement">
+                        <button type="submit" class="btn btn-primary btn-md btn-block">Зарегистрироваться</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="modal-footer">
+                <!-- registration or signin -->
+                <div class="forgot login-footer" id="toLogin">
+                    <span>
+                        Вы можете
+                        <a href="javascript: authorizationChange();">создать аккаунт</a>
+                    </span>
+                </div>
+                <div class="forgot register-footer" style="display:none" id="toRegist">
+                    <span>
+                        Уже есть аккаунт?
+                        <a href="javascript: authorizationChange();">Войти в аккаунт</a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Script{
+<script>
+    $("#Modal").modal('show');
+    $("#Modal").on('hidden.bs.modal', function (event) {
+        window.location.href = "Index?category=0";
+    });
+</script>
+
+<script>
+
+        function authorizationChange() {
+            var arr = ["authLabel", "registLabel", "loginForm", "registrForm", "toLogin", "toRegist"];
+            arr.forEach(function (item, i, arr) {
+                if (document.getElementById(item).style.display == 'none') {
+                    document.getElementById(item).style.display = '';
+                } else {
+                    document.getElementById(item).style.display = 'none';
+                }
+            });
+    }
+
+        
+        
+</script>
+
+<script>
+    $(function () {
+        $("#phone").mask("8(999) 999-99-99");
+    });
+</script>
+
+
+     
+<script>
+
+    $("#inputNewPassword").on('input keyup', function (e) {
+        document.getElementById('confPass').setAttribute("pattern", $('#inputNewPassword').val().toString());
+    });
+</script>
+}
