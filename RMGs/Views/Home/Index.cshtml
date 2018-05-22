@@ -24,10 +24,17 @@
             <div>
                 <div>
                     <input style="width:47%;display:inline-block;" id="minCost" value="0" class="form-control " aria-describedby="inputGroup-sizing-default" name="lowPrice" type="text" readonly />
+<<<<<<< HEAD
                     <input style="width:47%;display:inline-block;" id="maxCost" value="10000000000" class="form-control " aria-describedby="inputGroup-sizing-default" name="highPrice" type="text" readonly>
                 </div>
                 <br>
                 <div id="slider"></div>
+=======
+                    <input style="width:47%;display:inline-block;" id="maxCost" value="10000000000" class="form-control " aria-describedby="inputGroup-sizing-default" name="highPrice" type="text" readonly >
+                </div>
+                <br>
+                <div id="slider"></div> 
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
             </div>
             <div style="margin-top:10px;">
                 <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" name="CountryName" value="" required placeholder="Введите страну">
@@ -162,5 +169,24 @@
         @*$("a[name='star']").on('click', function (event) {
         window.location.href = "~/Home/AddTOBookMarks?OrderId=@Model.ElementAt(i).Id";
     });*@
+    //$("#slider").editRangeSlider();
+    $("#slider").slider({
+        min: 0,
+        max: 100000000,
+        values: [0, 100000000],
+        range: true,
+        stop: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        },
+        slide: function (event, ui) {
+            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
+            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+        }
+
+    });
+    //$("#GlobalSearch").on('click', function (event) {
+    //    window.location.href = "GlobalSearch?Ot=Order.Type@Country=RealEstate.Name@lowPrice=RealEstate.Property.LowPrice@highPrice=RealEstate.Property.HighPrice";
+    //});
 </script>
 }

@@ -10,6 +10,7 @@ C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.Assembly
 C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.dll
 C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.pdb
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\1\Documents\RPIS2\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.deps.json
 C:\Users\1\Documents\RPIS2\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.json
 C:\Users\1\Documents\RPIS2\RMGs\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.dev.json
@@ -22,6 +23,8 @@ C:\Users\1\Documents\RPIS2\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyInfo.c
 C:\Users\1\Documents\RPIS2\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.dll
 C:\Users\1\Documents\RPIS2\RMGs\RMGs\obj\Debug\netcoreapp2.0\RMGs.pdb
 =======
+=======
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.deps.json
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.json
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\bin\Debug\netcoreapp2.0\RMGs.runtimeconfig.dev.json
@@ -33,4 +36,7 @@ C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.AssemblyIn
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.pdb
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs\obj\Debug\netcoreapp2.0\RMGs.csprojAssemblyReference.cache
+<<<<<<< HEAD
 >>>>>>> d35b18b55ef8a30ce61be7eacec5c394ea2a6938
+=======
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
