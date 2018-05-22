@@ -15,6 +15,7 @@ C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Te
 C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.dll
 C:\_my_programm\Laboratonie\RPIS\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.pdb
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -33,6 +34,8 @@ C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.cs
 C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.dll
 C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.pdb
 =======
+=======
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -50,4 +53,7 @@ C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Test
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.csproj.CopyComplete
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.dll
 C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\Debug\netcoreapp2.0\RMGs.Tests.pdb
+<<<<<<< HEAD
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
+=======
 >>>>>>> 263a72e0f9fe3408147893852b60349306aa3310

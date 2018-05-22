@@ -14236,17 +14236,23 @@
     "version": "1.0.0",
     "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs.Tests\\RMGs.Tests.csproj",
       "projectName": "RMGs.Tests",
       "projectPath": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs.Tests\\RMGs.Tests.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs.Tests\\obj\\",
 =======
+=======
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
       "projectUniqueName": "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs.Tests\\RMGs.Tests.csproj",
       "projectName": "RMGs.Tests",
       "projectPath": "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs.Tests\\RMGs.Tests.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs.Tests\\obj\\",
+<<<<<<< HEAD
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
+=======
 >>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -14267,8 +14273,13 @@
         "netcoreapp2.0": {
           "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs\\RMGs.csproj": {
               "projectPath": "C:\\Users\\1\\Documents\\RPIS2\\RMGs\\RMGs\\RMGs.csproj"
+=======
+            "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs\\RMGs.csproj": {
+              "projectPath": "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs\\RMGs.csproj"
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
 =======
             "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs\\RMGs.csproj": {
               "projectPath": "C:\\Users\\1\\Documents\\RPIS\\RPIS_PAGE\\RMGs\\RMGs.csproj"

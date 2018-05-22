@@ -336,7 +336,12 @@ namespace RMGs.Controllers
             }
             User u = Initialize().Result;
 <<<<<<< HEAD
+<<<<<<< HEAD
             List<Order> orders = this.db.Orders.Where(o => o.Type == otSearch && o.RealEstate.Location.Country == Country && o.RealEstate.Location.City == City && o.UserId!=u.Id).ToList();
+=======
+            List<Order> orders;
+            orders = this.db.Orders.Where(o => o.Type == otSearch && o.UserId!=u.Id ).ToList();
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
 =======
             List<Order> orders;
             orders = this.db.Orders.Where(o => o.Type == otSearch && o.UserId!=u.Id ).ToList();

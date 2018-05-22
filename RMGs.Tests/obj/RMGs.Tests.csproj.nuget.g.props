@@ -4,7 +4,11 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">C:\Users\1\Documents\RPIS2\RMGs\RMGs.Tests\obj\project.assets.json</ProjectAssetsFile>
+=======
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\project.assets.json</ProjectAssetsFile>
+>>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
 =======
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">C:\Users\1\Documents\RPIS\RPIS_PAGE\RMGs.Tests\obj\project.assets.json</ProjectAssetsFile>
 >>>>>>> 263a72e0f9fe3408147893852b60349306aa3310
